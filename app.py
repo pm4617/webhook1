@@ -14,8 +14,9 @@ def dashboard():
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
+    print(request.data)
     webhook_message = json.loads(request.data)
-
+    
     if webhook_message['passphrase'] != config.WEBHOOK_PASSPHRASE:
         return {
             'code': 'error',
