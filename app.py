@@ -8,6 +8,7 @@ api = tradeapi.REST(config.API_KEY, config.API_SECRET, base_url='https://paper-a
 
 @app.route('/')
 def dashboard():
+    print("Callback")
     orders = api.list_orders()
     
     return render_template('dashboard.html', alpaca_orders=orders)
